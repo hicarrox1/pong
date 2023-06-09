@@ -19,7 +19,7 @@ class Gui():
 
             e.visibility = False
 
-        self.button_start = ButtonRect(200-15,150-5,(30,10),start_game,5)
+        self.button_start = ButtonRect(175,135,(50,30),start_game,3)
 
         self.spriteUI_list.extend([self.button_start])
         self.update_list.extend([self.button_start])
@@ -33,6 +33,10 @@ class Gui():
             sprite.draw(self.anchor_x,self.anchor_y)
 
         pyxel.text(20,20,f"score : {self.score[0]} | {self.score[1]}", 0)
+
+        if self.button_start.visibility:
+
+            pyxel.text(200-10,150-5,"Start", 0)
 
     def set_anchor(self, x: int, y: int):
         self.anchor_x = x

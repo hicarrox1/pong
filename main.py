@@ -72,6 +72,8 @@ class App():
 
             self.gui.start = False
 
+        self.gui.score = self.level.score
+
 
     def draw(self):
 

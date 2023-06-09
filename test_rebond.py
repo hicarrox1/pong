@@ -15,4 +15,3 @@ def get_norme(vecteur: list):
 def get_vecteur_with_angle(angle: float, norme: int):
 
     return [ norme * math.cos(angle), norme * math.sin(angle)]
-

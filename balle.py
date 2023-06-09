@@ -5,22 +5,29 @@ class Balle(MoveSprite):
 
 
     def __init__(self, pos_x: int, pos_y: int) -> None:
-        super().__init__(pos_x, pos_y, (16,16), (0,32), 0, 200, 10, 0)
+        super().__init__(pos_x, pos_y, (16,16), (0,32), 0, 300, 10, 0)
 
         self.norme_limit = 4
+    
+    def rebond_y(self):
 
-    def touche_border(self):
-        if self.pos_x < 0 or self.pos_x + self.size[0] > pyxel.width - 6:
-            return True
-        if self.pos_y < 0 or self.pos_y + self.size[1] > pyxel.height - 6:
-            return True
-        
-        return False
+        self.direction[1] = -self.direction[1]
+
+    def rebond_x(self):
+
+        add = 0.2
+
+        if self.direction[0] >= 0:
+            
+            add = -0.2
+
+        self.direction[0] = -self.direction[0] + add
     
     def update(self):
 
         if get_norme(self.direction) > self.norme_limit:
 
-            pass
+            self.direction[0] - 0.2
+            self.direction[1] - 0.2
 
         super().update()
